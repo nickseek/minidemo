@@ -1,0 +1,12 @@
+docker file:
+    install python image
+    update pip
+    install requirements
+
+docker compose: 
+    see it contains needed definitions for mounting a volume; 
+    what addition info does it require?
+
+add tests?
+
+change config.ini to .env which can also contain image name for docker compose? can the code pull from it?
