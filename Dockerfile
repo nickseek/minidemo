@@ -10,8 +10,9 @@ RUN python -m venv venv && \
     pip install --no-cache-dir -r requirements.txt
 ENV PATH /app/venv/bin:$PATH
 # Copy the application contents
-COPY service/ ./service/
+COPY generate.py . 
+COPY app.py .
 # Expose the port is expecting in the environment
 EXPOSE 8501
 # Run the app
-CMD ["streamlit", "run", "service/app.py"]
+CMD ["streamlit", "run", "app.py"]

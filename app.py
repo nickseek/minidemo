@@ -1,5 +1,5 @@
 import streamlit as st
-from service.generate import Generator
+from generate import Generator
 
 generator = Generator()
 

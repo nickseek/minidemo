@@ -1,4 +1,3 @@
-import configparser
 from transformers import AutoModel, AutoTokenizer, GPT2Tokenizer,GPT2LMHeadModel
 import os
 
