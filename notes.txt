@@ -1,12 +1,30 @@
-docker file:
-    install python image
-    update pip
-    install requirements
+mount a volutme
 
-docker compose: 
-    see it contains needed definitions for mounting a volume; 
-    what addition info does it require?
 
 add tests?
 
 change config.ini to .env which can also contain image name for docker compose? can the code pull from it?
+
+
+OpenShift Build Configuration (BuildConfig):
+In OpenShift, you need to define a BuildConfig object to configure the S2I build process.
+This file specifies details such as the source repository, build strategy (S2I), builder image, 
+context directory (where the Dockerfile is located), and any necessary build environment variables.
+
+Deployment Configuration (DeploymentConfig or Kubernetes Deployment):
+After the S2I build completes, you need a Deployment Configuration or Kubernetes Deployment object to define how 
+the built image will be deployed and run in the cluster. This includes details such as the container image, 
+environment variables, ports, replicas, and other deployment settings.
+
+Service (Optional):
+If your application requires network access or needs to be exposed externally, 
+you may need to define a Service object. The Service specifies a stable network endpoint (IP and port) 
+for accessing your application within the cluster.
+
+Route (In OpenShift):
+In OpenShift, if you want to expose your application to the outside world, you can use a Route object. 
+The Route sets up a public domain name (URL) and routes incoming traffic to your application's Service.
+
+
+
+

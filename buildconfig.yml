@@ -1,0 +1,19 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: minidemo-build
+spec:
+  source:
+    type: Git
+    git:
+      uri: https://github.com/nickseek/minidemo
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: openshift/python:3.9
+  output:
+    to:
+      kind: ImageStreamTag
+      name: minidemo:latest

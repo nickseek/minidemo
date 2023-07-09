@@ -1,4 +1,4 @@
 .DS_Store
-modelFiles/
+data/
 notes.txt
 __pycache__/

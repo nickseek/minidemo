@@ -2,10 +2,13 @@ import configparser
 from transformers import AutoModel, AutoTokenizer, GPT2Tokenizer,GPT2LMHeadModel
 import os
 
-Config = configparser.ConfigParser()
-Config.read('config.ini')
-model_path = Config.get('model','model_path')
-tokenizer_path = Config.get('model','tokenizer_path')
+# Config = configparser.ConfigParser()
+# Config.read('config.ini')
+# model_path = Config.get('model','model_path')
+# tokenizer_path = Config.get('model','tokenizer_path')
+model_data_folder = os.path.join('data','modelFiles')
+model_path = os.path.join(model_data_folder,'model')
+tokenizer_path = os.path.join(model_data_folder,'tokenizer')
 model_name = 'gpt2'
 
 class Generator:
@@ -30,7 +33,7 @@ def get_model():
 def get_tokenizer():
     if not os.path.exists(tokenizer_path):
         tokenizer = AutoTokenizer.from_pretrained(model_name)
-        tokenizer.save_pretrained(os.path.join('model_files','tokenizer'))
+        tokenizer.save_pretrained(tokenizer_path)
     else:
         tokenizer = GPT2Tokenizer.from_pretrained(tokenizer_path)
     return tokenizer

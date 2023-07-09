@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: DeploymentConfig
+metadata:
+  name: minidemo-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minidemo
+  template:
+    metadata:
+      labels:
+        app: minidemo
+    spec:
+      containers:
+        - name: minidemo-container
+          image: <image-name>
+          ports:
+            - containerPort: 8501
+          volumeMounts:
+            - name: data-volume
+              mountPath: /data
+      volumes:
+        - name: data-volume
+          persistentVolumeClaim:
+            claimName: minidemo-pvc
